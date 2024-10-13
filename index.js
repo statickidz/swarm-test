@@ -22,6 +22,6 @@ const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
   });
 
   app.listen(port, () => {
-    console.log(`App running on port ${port} after 5 seconds delay`);
+    console.log(`App instance ${instanceId} running on port ${port} after 5 seconds delay`);
   });
 })();
