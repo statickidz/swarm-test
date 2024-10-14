@@ -8,8 +8,7 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "express": "^4.19.2",
-    "node-ip": "0.1.2"
+    "express": "^4.19.2"
   },
   "keywords": [],
   "author": "",
