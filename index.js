@@ -1,4 +1,5 @@
 const express = require('express');
+const ip = require('ip');
 const app = express();
 const port = 3000;
 
@@ -14,14 +15,14 @@ const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
   // Definir las rutas después del delay
   app.get('/', (req, res) => {
-    res.send(`Hello from instance ${instanceId}`);
+    res.send(`Hello from instance ${instanceId} with ip ${ip}`);
   });
 
   app.get('/health', (req, res) => {
-     res.send(`Hello from instance ${instanceId}`);
+     res.send(`Hello from instance ${instanceId} with ip ${ip}`);
   });
 
   app.listen(port, () => {
-    console.log(`App instance ${instanceId} running on port ${port} after 5 seconds delay`);
+    console.log(`App instance ${instanceId} with ip ${ip} running on port ${port} after 5 seconds delay`);
   });
 })();
