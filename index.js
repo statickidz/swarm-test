@@ -13,6 +13,7 @@ const networkInterfaces = Object.values(os.networkInterfaces())
             address !== '127.0.0.1'
     })
     .map(({address}) => address);
+
 const ipAddresses = networkInterfaces.join(', ')
 
 // Generar un identificador único para esta instancia
