@@ -10,11 +10,13 @@ const networkInterfaces = Object.values(os.networkInterfaces())
     }, [])
     .filter(({family, address}) => {
         return family.toLowerCase().indexOf('v4') >= 0 &&
-            address !== '127.0.0.1'
+            address !== '127.0.0.1';
     })
     .map(({address}) => address);
 
-const ipAddresses = networkInterfaces.join(', ')
+const ipAddresses = networkInterfaces.join(', ');
+
+const hostname = os.hostname();
 
 // Generar un identificador único para esta instancia
 const instanceId = Math.random().toString(36).substring(7);
@@ -28,14 +30,14 @@ const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
   // Definir las rutas después del delay
   app.get('/', (req, res) => {
-    res.send(`Hello from instance ${instanceId} with ip ${ipAddresses}`);
+    res.send(`Hello from instance ${instanceId} with ip ${ipAddresses} and hostname ${hostname}`);
   });
 
   app.get('/health', (req, res) => {
-     res.send(`Hello from instance ${instanceId} with ip ${ipAddresses}`);
+     res.send(`Hello from instance ${instanceId} with ip ${ipAddresses} and hostname ${hostname}`);
   });
 
   app.listen(port, () => {
-    console.log(`App instance ${instanceId} with ip ${ipAddresses} running on port ${port} after 5 seconds delay`);
+    console.log(`App instance ${instanceId} with ip ${ipAddresses} and hostname ${hostname} running on port ${port} after 5 seconds delay`);
   });
 })();
