@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "echo \"No start script specified\""
+    "build": "echo \"No build script specified\""
+  },
   "dependencies": {
     "express": "^4.19.2"
   },
